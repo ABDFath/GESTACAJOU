@@ -1,0 +1,7 @@
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\bin\Debug\GESTACAJOU.SQLENGINE.dll
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\bin\Debug\GESTACAJOU.SQLENGINE.pdb
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\bin\Debug\SC.Core.dll
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\bin\Debug\sc.users.dll
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\obj\Debug\GESTACAJOU.SQLENGINE.dll
+C:\Users\ABDOULAYE\Documents\Visual Studio 2012\Projects\GESTACAJOU\GESTACAJOU.SQLENGINE\obj\Debug\GESTACAJOU.SQLENGINE.pdb
