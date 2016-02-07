@@ -8,7 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F48B263B-8841-418A-A789-48F9AA6E3E29}</ProjectGuid>
-    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GESTACAJOU</RootNamespace>
@@ -39,11 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DotNetOpenAuth.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
@@ -63,11 +63,23 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GESTACAJOU.SQLENGINE\DLL\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SC.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GESTACAJOU.SQLENGINE\DLL\SC.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="sc.users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GESTACAJOU.SQLENGINE\DLL\sc.users.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System" />
@@ -125,6 +137,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1063,6 +1079,18 @@
     <Content Include="Content\themes\base\datepicker.css" />
     <Content Include="Content\themes\base\dialog.css" />
     <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\add-button.gif" />
+    <Content Include="Content\themes\base\images\button.gif" />
+    <Content Include="Content\themes\base\images\close.gif" />
+    <Content Include="Content\themes\base\images\del.gif" />
+    <Content Include="Content\themes\base\images\edit.gif" />
+    <Content Include="Content\themes\base\images\footer.gif" />
+    <Content Include="Content\themes\base\images\header.gif" />
+    <Content Include="Content\themes\base\images\msg-error.gif" />
+    <Content Include="Content\themes\base\images\msg-ok.gif" />
+    <Content Include="Content\themes\base\images\pagging.gif" />
+    <Content Include="Content\themes\base\images\tab.gif" />
+    <Content Include="Content\themes\base\images\th.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1085,13 +1113,13 @@
     <Content Include="Content\themes\base\slider.css" />
     <Content Include="Content\themes\base\sortable.css" />
     <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\style1.css" />
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\themes\default.css" />
     <Content Include="Content\typeahead.js-bootstrap.css" />
     <Content Include="dll\DotNetOpenAuth.AspNet.dll" />
-    <Content Include="dll\DotNetOpenAuth.AspNet.xml" />
     <Content Include="dll\DotNetOpenAuth.Core.dll" />
     <Content Include="dll\DotNetOpenAuth.Core.xml" />
     <Content Include="dll\DotNetOpenAuth.OAuth.Consumer.dll" />
@@ -1103,9 +1131,9 @@
     <Content Include="dll\DotNetOpenAuth.OpenId.RelyingParty.xml" />
     <Content Include="dll\DotNetOpenAuth.OpenId.xml" />
     <Content Include="dll\Newtonsoft.Json.dll" />
-    <Content Include="dll\Newtonsoft.Json.xml" />
     <Content Include="dll\System.Web.Optimization.dll" />
     <Content Include="dll\System.Web.Optimization.xml" />
+    <Content Include="dll\WebGrease.dll" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bloodhound.js" />
     <Content Include="Scripts\bloodhound.min.js" />
@@ -1147,6 +1175,7 @@
     <Content Include="Scripts\typeahead.jquery.js" />
     <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Pisteur\Ajout.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

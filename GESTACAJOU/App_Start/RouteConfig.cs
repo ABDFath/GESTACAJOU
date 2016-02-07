@@ -17,7 +17,7 @@ namespace GESTACAJOU
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 // defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
-                defaults: new { controller = "Account", action = "LoginSkinned", id = UrlParameter.Optional }
+                defaults: new { controller = "Pisteur", action = "Ajout", id = UrlParameter.Optional }
             );
         }
     }

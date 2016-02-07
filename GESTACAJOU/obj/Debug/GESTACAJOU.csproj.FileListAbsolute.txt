@@ -52,14 +52,12 @@ C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\SC.Core.dll
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\Microsoft.ApplicationBlocks.Data.dll
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\System.Net.Http.Formatting.dll
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\GESTACAJOU.SQLENGINE.pdb
-C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.AspNet.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.Core.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.OAuth.Consumer.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\Microsoft.Web.WebPages.OAuth.xml
-C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\Newtonsoft.Json.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\System.Web.Http.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\System.Web.Http.WebHost.xml
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\System.Web.Optimization.xml
@@ -75,3 +73,5 @@ C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\fr\System.Web.Http
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\fr\System.Web.Http.WebHost.resources.dll
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\fr\System.Web.Mvc.resources.dll
 C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\fr\System.Net.Http.Formatting.resources.dll
+C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\sc.users.dll
+C:\Users\ABDOULAYE\Documents\GitHub\GESTACAJOU\GESTACAJOU\bin\WebGrease.dll

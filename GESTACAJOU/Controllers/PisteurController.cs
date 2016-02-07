@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GESTACAJOU.Models;
 
 namespace GESTACAJOU.Controllers
 {
@@ -14,6 +15,29 @@ namespace GESTACAJOU.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        private void InitAjoutView()
+        {
+            //List<> _listDept = DbFactory.GetListDepartement();
+            //List<SelectListItem> li = new List<SelectListItem>();
+            //li.Add(new SelectListItem { Text = "Selectionner...", Value = "0" });
+            //foreach (DepartementModel item in _listDept)
+            //{
+            //    li.Add(new SelectListItem { Text = item.NAME_D, Value = item.ID.ToString() });
+            //}
+
+            ViewData["ID_ZONE"] = new List<SelectListItem>();
+           
+           
+        }
+
+        public ActionResult Ajout()
+        {
+            PisteurModel pist = new PisteurModel();
+            pist.GetList();
+            InitAjoutView();
+            return View(pist);
         }
 
         //
