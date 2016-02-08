@@ -153,18 +153,29 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChargementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartenaireController.cs" />
     <Compile Include="Controllers\PisteurController.cs" />
+    <Compile Include="Controllers\VenteController.cs" />
+    <Compile Include="Controllers\VenteDetailsController.cs" />
+    <Compile Include="Controllers\ZoneControleurController.cs" />
+    <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Business\DbFactory.cs" />
+    <Compile Include="Models\Chargement.cs" />
     <Compile Include="Models\ChargementDetailsModel.cs" />
     <Compile Include="Models\ChargementModel.cs" />
     <Compile Include="Models\ChargeModel.cs" />
+    <Compile Include="Models\Partenaire.cs" />
     <Compile Include="Models\PisteurModel.cs" />
     <Compile Include="Models\TypeChargeModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\Utilisateur.cs" />
+    <Compile Include="Models\Vente.cs" />
+    <Compile Include="Models\Vente_Details.cs" />
+    <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1176,7 +1187,23 @@
     <Content Include="Scripts\typeahead.jquery.js" />
     <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Partenaire\CreatePartenaire.aspx" />
+    <Content Include="Views\Partenaire\DeletePartener.aspx" />
+    <Content Include="Views\Partenaire\IndexPartenaire.aspx" />
+    <Content Include="Views\Partenaire\ModifyPartener.aspx" />
     <Content Include="Views\Pisteur\Ajout.aspx" />
+    <Content Include="Views\VenteDetails\Create.aspx" />
+    <Content Include="Views\VenteDetails\Delete.aspx" />
+    <Content Include="Views\VenteDetails\Edit.aspx" />
+    <Content Include="Views\VenteDetails\Index.aspx" />
+    <Content Include="Views\Vente\Create.aspx" />
+    <Content Include="Views\Vente\Delete.aspx" />
+    <Content Include="Views\Vente\Edit.aspx" />
+    <Content Include="Views\Vente\Index.aspx" />
+    <Content Include="Views\Zone\Create.aspx" />
+    <Content Include="Views\Zone\Delete.aspx" />
+    <Content Include="Views\Zone\Edit.aspx" />
+    <Content Include="Views\Zone\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -43,6 +43,7 @@
       <HintPath>DLL\sc.users.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>App.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Connexion.cs" />
     <Compile Include="CHARGE.cs" />
     <Compile Include="CHARGEMENT_DETAILS.cs" />
     <Compile Include="CHARGERMENT.cs" />
