@@ -185,4 +185,17 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsSection" runat="server">
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $(".editLink").click(function (e) {
+
+                 var $this = $(this);
+                 var num = $this.attr("id");
+                 var redirect = "/Pisteur/Ajout/" + num;
+                 $this.attr("href", redirect)
+
+
+             });
+         });
+          </script>
 </asp:Content>
