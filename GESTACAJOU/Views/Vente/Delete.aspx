@@ -103,7 +103,7 @@
 
 
     <div>|
-        <%: Html.ActionLink("Back to List", "../Vente/IndexVente") %>
+        <%: Html.ActionLink("Retour à la liste", "../Vente/IndexVente") %>
     </div>
 
 

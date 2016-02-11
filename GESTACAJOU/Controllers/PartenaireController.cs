@@ -21,11 +21,12 @@ namespace GESTACAJOU.Controllers
         }
 
         //Get
-        public ActionResult ModifyPartener(int ID)
+        public ActionResult ModifyPartener()
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
             PartenerToModify = new Partenaire();
             PARTENAIRE part=new PARTENAIRE();
-            part.LoadId(ID);
+            part.LoadId(id);
             PartenerToModify.CONTACT = part.CONTACT;
             PartenerToModify.ID_AUTO = part.ID_AUTO;
             PartenerToModify.NOM = part.NOM;
@@ -33,16 +34,17 @@ namespace GESTACAJOU.Controllers
             return View(PartenerToModify);
         }
 
-        public ActionResult DeletePartener(int ID)
+        public ActionResult DeletePartener()
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
             Partenaire Part  = new Partenaire();
             PARTENAIRE parts = new PARTENAIRE();
-            parts.LoadId(ID);
+            parts.LoadId(id);
             Part.CONTACT = parts.CONTACT;
             Part.ID_AUTO = parts.ID_AUTO;
             Part.NOM = parts.NOM;
             Part.PRENOM = parts.PRENOM;
-            return View(PartenerToModify);
+            return View(Part);
         }
 
         // GET: /Partenaire/
@@ -79,7 +81,7 @@ namespace GESTACAJOU.Controllers
                 _partenaire.NOM = PartenerToCreate.NOM;
                 _partenaire.PRENOM = PartenerToCreate.PRENOM;
                 _partenaire.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Partenaire/IndexPartenaire");
             }
             catch
             {
@@ -91,6 +93,7 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult ModifyPartener(Partenaire PartenerToModify)
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
             if (!ModelState.IsValid)
                 return View();
 
@@ -100,9 +103,9 @@ namespace GESTACAJOU.Controllers
                 _partenaire.CONTACT = PartenerToModify.CONTACT;
                 _partenaire.NOM = PartenerToModify.NOM;
                 _partenaire.PRENOM = PartenerToModify.PRENOM;
-                _partenaire.SetId(PartenerToModify.ID_AUTO);
+                _partenaire.SetId(id);
                 _partenaire.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Partenaire/IndexPartenaire");
             }
             catch
             {
@@ -115,18 +118,20 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult DeletePartener(Partenaire PartenerToDel)
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
                 PARTENAIRE _partenaire = new PARTENAIRE();
-                _partenaire.SetId(PartenerToDel.ID_AUTO);
+                _partenaire.SetId(id);
                 _partenaire.Delete();
-                return RedirectToAction("../Home/Index");//reafficher l liste
+                return RedirectToAction("../Partenaire/IndexPartenaire");//reafficher l liste
             }
             catch
             {
+                //gerer l'exeption au cas ou on n peut supprimer cet partenaire car il est deja utilise
                 return View();
             }
 
