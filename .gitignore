@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.suo
+GESTACAJOU/obj/Debug/GESTACAJOU.dll
+GESTACAJOU/obj/Debug/GESTACAJOU.pdb
+*.pdb

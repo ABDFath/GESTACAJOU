@@ -15,7 +15,7 @@ namespace GESTACAJOU.Controllers
         Partenaire PartenerToModify;
        
         //Get
-        public ActionResult CreatePartener()
+        public ActionResult CreatePartenaire()
         {
             return View();
         }
@@ -47,10 +47,10 @@ namespace GESTACAJOU.Controllers
 
         // GET: /Partenaire/
 
-        public ActionResult Index()
+        public ActionResult IndexPartenaire()
         {
             PARTENAIRE _partenaire = new PARTENAIRE();
-            List<Partenaire> _list = new List<Partenaire>(); ;
+            List<Partenaire> _list = new List<Partenaire>(); 
             foreach (PARTENAIRE item in PARTENAIRE.GetList())
             {
                 Partenaire partener=new Partenaire();
@@ -66,8 +66,8 @@ namespace GESTACAJOU.Controllers
 
 
         // POST: /Partenaire/Create
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult CreatePartener(Partenaire PartenerToCreate)
+        [HttpPost]
+        public ActionResult CreatePartenaire(Partenaire PartenerToCreate)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -88,7 +88,7 @@ namespace GESTACAJOU.Controllers
 
         }
         // POST: /Partenaire/Modify
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         public ActionResult ModifyPartener(Partenaire PartenerToModify)
         {
             if (!ModelState.IsValid)
@@ -112,7 +112,7 @@ namespace GESTACAJOU.Controllers
         }
 
         // POST: /Partenaire/del
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         public ActionResult DeletePartener(Partenaire PartenerToDel)
         {
             if (!ModelState.IsValid)

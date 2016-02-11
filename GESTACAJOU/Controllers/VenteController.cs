@@ -10,13 +10,14 @@ namespace GESTACAJOU.Controllers
 {
     public class VenteController : Controller
     {
+        int id = 0;
         //
         // GET: /Vente/
-
-        public ActionResult Index()
+        List<Vente> _list;
+        public ActionResult IndexVente()
         {
             VENTE _vente = new VENTE();
-            List<Vente> _list = new List<Vente>(); ;
+            _list = new List<Vente>(); ;
             foreach (VENTE item in VENTE.GetList())
             {
                 Vente ventes = new Vente();
@@ -25,18 +26,30 @@ namespace GESTACAJOU.Controllers
                 ventes.MONTANT_TOTAL= item.MONTANT_TOTAL;
                 ventes.PARTENAIRE = item.PARTENAIRE;
                 ventes.QTE_TOTAL = item.QTE_TOTAL;
+                ventes.ID_AUTO = item.ID_AUTO;
                 _list.Add(ventes);
             }
 
             return View(_list);
         }
 
+        public static IEnumerable<SelectListItem> ToSelectListItems()
+        {
+            IList<SelectListItem> results = new List<SelectListItem>();
+            foreach (PARTENAIRE item in PARTENAIRE.GetList())
+            {
+                results.Add(new SelectListItem { Text = item.ToString(), Value = item.ID_AUTO.ToString()});
+            }
+            return results;
+        }
        
         //
         // GET: /Vente/Create
 
         public ActionResult Create()
         {
+            ViewData["ID_PARTENAIRE"] = ToSelectListItems();
+            //Vente ventes = new Vente();
             return View();
         } 
 
@@ -58,7 +71,7 @@ namespace GESTACAJOU.Controllers
                 _vente.SetPARTENAIRE(VenteToCreate.PARTENAIRE);
                 _vente.QTE_TOTAL = VenteToCreate.QTE_TOTAL;
                 _vente.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Vente/IndexVente");
             }
             catch
             {
@@ -69,8 +82,10 @@ namespace GESTACAJOU.Controllers
         //
         // GET: /Vente/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
+            
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
             Vente ventes = new Vente();
             VENTE _vente = new VENTE();
             _vente.LoadId(id);
@@ -79,6 +94,12 @@ namespace GESTACAJOU.Controllers
             ventes.MONTANT_TOTAL = _vente.MONTANT_TOTAL;
             ventes.PARTENAIRE=_vente.PARTENAIRE;
             ventes.QTE_TOTAL = _vente.QTE_TOTAL;
+            ventes.ID_AUTO = _vente.ID_AUTO;
+
+            IEnumerable<SelectListItem> list = ToSelectListItems();
+            list.ToList().Find(x => x.Text.Equals(ventes.PARTENAIRE)).Selected = true;
+            ViewData["ID_PARTENAIRE"] = list;
+
             return View(ventes);
         }
 
@@ -88,6 +109,8 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult Edit(Vente ventes)
         {
+            id = Int32.Parse(RouteData.Values["id"].ToString());
+
             if (!ModelState.IsValid)
                 return View();
 
@@ -99,9 +122,9 @@ namespace GESTACAJOU.Controllers
                 _vente.MONTANT_TOTAL = ventes.MONTANT_TOTAL;
                 _vente.SetPARTENAIRE(ventes.PARTENAIRE);
                 _vente.QTE_TOTAL = ventes.QTE_TOTAL;
-                _vente.SetId(ventes.ID_AUTO);
+                _vente.SetId(id);
                 _vente.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Vente/IndexVente");
             }
             catch
             {
@@ -110,11 +133,14 @@ namespace GESTACAJOU.Controllers
 
         }
 
-        //
+        
         // GET: /Vente/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
+            
+            id = Int32.Parse(RouteData.Values["id"].ToString());
+          
             Vente ventes = new Vente();
             VENTE _vente = new VENTE();
             _vente.LoadId(id);
@@ -123,6 +149,12 @@ namespace GESTACAJOU.Controllers
             ventes.MONTANT_TOTAL = _vente.MONTANT_TOTAL;
             ventes.PARTENAIRE=_vente.PARTENAIRE;
             ventes.QTE_TOTAL = _vente.QTE_TOTAL;
+            ventes.ID_AUTO= _vente.ID_AUTO;
+
+            IEnumerable<SelectListItem> list= ToSelectListItems();
+            list.ToList().Find(x => x.Text.Equals(ventes.PARTENAIRE)).Selected=true;
+            ViewData["ID_PARTENAIRE"] = list;
+
             return View(ventes);
         }
 
@@ -132,15 +164,17 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult Delete(Vente VenteToDel)
         {
+            id = Int32.Parse(RouteData.Values["id"].ToString());
+
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
                 VENTE _vente = new VENTE();
-                _vente.SetId(VenteToDel.ID_AUTO);
+                _vente.SetId(id);
                 _vente.Delete();
-                return RedirectToAction("../Home/Index");//reafficher l liste
+                return RedirectToAction("../Vente/IndexVente");//reafficher l liste
             }
             catch
             {

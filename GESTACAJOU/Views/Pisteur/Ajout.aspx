@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<GESTACAJOU.Models.PisteurModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-   GEST CAJOU | Nouveau Pisteur
+   GESTCAJOU | Nouveau Pisteur
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -185,4 +185,17 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsSection" runat="server">
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $(".editLink").click(function (e) {
+
+                 var $this = $(this);
+                 var num = $this.attr("id");
+                 var redirect = "/Pisteur/Ajout/" + num;
+                 $this.attr("href", redirect)
+
+
+             });
+         });
+          </script>
 </asp:Content>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GESTACAJOU.Models
 {
@@ -25,6 +26,8 @@ namespace GESTACAJOU.Models
         public string PARTENAIRE { get; set; }
 
         public List<Vente_Details> VENTE_DETAILS { get; set; }
+
+        public IEnumerable<SelectListItem> _list2 { get; set; }
 
         public Vente()
         {

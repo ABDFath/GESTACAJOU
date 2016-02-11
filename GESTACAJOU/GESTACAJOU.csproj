@@ -163,6 +163,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Business\DbFactory.cs" />
     <Compile Include="Models\Chargement.cs" />
     <Compile Include="Models\ChargementDetailsModel.cs" />
     <Compile Include="Models\ChargementModel.cs" />
@@ -1198,7 +1199,7 @@
     <Content Include="Views\Vente\Create.aspx" />
     <Content Include="Views\Vente\Delete.aspx" />
     <Content Include="Views\Vente\Edit.aspx" />
-    <Content Include="Views\Vente\Index.aspx" />
+    <Content Include="Views\Vente\IndexVente.aspx" />
     <Content Include="Views\Zone\Create.aspx" />
     <Content Include="Views\Zone\Delete.aspx" />
     <Content Include="Views\Zone\Edit.aspx" />
@@ -1383,7 +1384,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51181</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5468/</IISUrl>
+          <IISUrl>http://localhost:5467/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

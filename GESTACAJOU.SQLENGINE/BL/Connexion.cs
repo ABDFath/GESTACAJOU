@@ -9,7 +9,7 @@ namespace Business
 {
     public class Connexion
     {
-        public static string Cnx= ConfigurationManager.ConnectionStrings["CnxString"].ConnectionString;
+        public static string Cnx = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
     }
 }

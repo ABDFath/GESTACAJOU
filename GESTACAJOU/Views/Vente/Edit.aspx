@@ -1,77 +1,106 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<GESTACAJOU.Models.Vente>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Edit
+    GESTCAJOU | Supprimer une vente
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Edit</h2>
+<h2>GESTION DES VENTES</h2>
 
 <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
 <script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
-
-<% using (Html.BeginForm()) { %>
-    <%: Html.ValidationSummary(true) %>
-    <fieldset>
-        <legend>Vente</legend>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_AUTO) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ID_AUTO) %>
-            <%: Html.ValidationMessageFor(model => model.ID_AUTO) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_PARTENAIRE) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ID_PARTENAIRE) %>
-            <%: Html.ValidationMessageFor(model => model.ID_PARTENAIRE) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.MONTANT_TOTAL) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.MONTANT_TOTAL) %>
-            <%: Html.ValidationMessageFor(model => model.MONTANT_TOTAL) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.QTE_TOTAL) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.QTE_TOTAL) %>
-            <%: Html.ValidationMessageFor(model => model.QTE_TOTAL) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.DATE_OPERATION) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.DATE_OPERATION) %>
-            <%: Html.ValidationMessageFor(model => model.DATE_OPERATION) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.PARTENAIRE) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.PARTENAIRE) %>
-            <%: Html.ValidationMessageFor(model => model.PARTENAIRE) %>
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
+    <div class="row">
+        <% using (Html.BeginForm())   
+           { %>
+         <%: Html.ValidationSummary(true) %>
+          <%: Html.AntiForgeryToken() %>
+         <div class="col-xs-12">
+            <div class="box box-info">
+                 <div class="box-header">
+                    <h3 class="box-title">Modification d'une vente</h3>
+                    <div class="box-tools pull-right">
+                        <div class="label bg-aqua">&nbsp;</div>
+                    </div>
+                </div>
+             <div class="box-body">
+              <div class="row">
+                   <div class="col-md-2">
+                        &nbsp;
+                   </div>
+                   <div class="col-md-2">
+                        <label>QUANTITE TOTALE</label>
+                   </div>
+                   <div class="col-md-5">
+                   <div class="form-group">
+                     <%: Html.TextBoxFor(m => m.QTE_TOTAL, new {@class ="form-control",autocomplete="off" }) %>
+                      <%: Html.ValidationMessageFor(m=>m.QTE_TOTAL) %>
+                   </div>
+                   </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-2">
+                        &nbsp;
+                   </div>
+                   <div class="col-md-2">
+                        <label>MONTANT TOTAL</label>
+                   </div>
+                   <div class="col-md-5">
+                   <div class="form-group">
+                       <%: Html.TextBoxFor(m => m.MONTANT_TOTAL, new {@class ="form-control",autocomplete="off" }) %>
+                        <%: Html.ValidationMessageFor(m=>m.MONTANT_TOTAL) %>
+                   </div>
+                   </div>
+              </div>
+                
+             
+              <div class="row">
+                   <div class="col-md-2">
+                        &nbsp;
+                   </div>
+                   <div class="col-md-2">
+                        <label>DATE OPERATION</label>
+                   </div>
+                   <div class="col-md-5">
+                   <div class="form-group">
+                       <%: Html.TextBoxFor(m => m.DATE_OPERATION, new {@class ="form-control",autocomplete="off" }) %>
+                       <%: Html.ValidationMessageFor(m=>m.DATE_OPERATION) %>
+                   </div>
+                   </div>
+              </div>
+              
+                 <div class="row">
+                   <div class="col-md-2">
+                        &nbsp;
+                   </div>
+                   <div class="col-md-2">
+                        <label>PARTENAIRE</label>
+                   </div>
+                  <div class="col-md-5">
+                   <div class="form-group">
+                       <%: Html.DropDownListFor(m => m.ID_PARTENAIRE,ViewData["PARTENAIRE"] as List<SelectListItem>,new { @class = "form-control select2"})%>
+                       <%: Html.ValidationMessageFor(m=>m.PARTENAIRE) %>
+                   </div>
+                   </div>
+              </div>
+                 <div class="row">
+                   <div class="col-md-2">
+                        &nbsp;
+                   </div>
+                   <p>
+            <input type="submit" value="Modifier" class="btn btn-success" name="btnFormSubmit" id="btnFormSubmit" />
         </p>
-    </fieldset>
+
+                   </div>
+              </div>
+                  
+              </div>
+ </div>
+         </div>
 <% } %>
 
-<div>
-    <%: Html.ActionLink("Back to List", "Index") %>
-</div>
 
+    <div>|
+        <%: Html.ActionLink("Back to List", "../Vente/IndexVente") %>
+    </div>
 </asp:Content>

@@ -27,5 +27,9 @@ namespace GESTACAJOU.Models
         {
             Ventes = new List<Vente>(); 
         }
+        public override string ToString()
+        {
+            return NOM + " " + PRENOM;
+        }
     }
 }

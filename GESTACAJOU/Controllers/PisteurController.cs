@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GESTACAJOU.Models;
+using GESTACAJOU.Models.Business;
+using GESTACAJOU.SQLENGINE;
 
 namespace GESTACAJOU.Controllers
 {
@@ -19,25 +21,95 @@ namespace GESTACAJOU.Controllers
 
         private void InitAjoutView()
         {
-            //List<> _listDept = DbFactory.GetListDepartement();
-            //List<SelectListItem> li = new List<SelectListItem>();
-            //li.Add(new SelectListItem { Text = "Selectionner...", Value = "0" });
-            //foreach (DepartementModel item in _listDept)
-            //{
-            //    li.Add(new SelectListItem { Text = item.NAME_D, Value = item.ID.ToString() });
-            //}
+            List<ZONE> _listPist = ZONE.GetList();
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Selectionner...", Value = "0" });
+            foreach (ZONE item in _listPist)
+            {
+                li.Add(new SelectListItem { Text = item.NOM, Value = item.ID_AUTO.ToString() });
+            }
 
-            ViewData["ID_ZONE"] = new List<SelectListItem>();
+            ViewData["ID_ZONE"] = li;
            
            
         }
 
-        public ActionResult Ajout()
+        public ActionResult Ajout(string id)
         {
-            PisteurModel pist = new PisteurModel();
-            pist.GetList();
-            InitAjoutView();
-            return View(pist);
+            try
+            {
+                Session["ID"] = null;
+                InitAjoutView();
+                ViewBag.IsCompleted = false;
+                PisteurModel pist = new PisteurModel();
+                if (!string.IsNullOrEmpty(id))
+                {
+                    int _id = Convert.ToInt32(id);
+                    pist = DbFactory.FindPisteur(_id);
+                    Session["ID"] = pist.ID_AUTO;
+                }
+                pist.GetList();
+                return View(pist);
+            }
+            catch (Exception ex)
+            {
+              string message = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    message += ex.InnerException.Message;
+                }
+                message += ex.StackTrace;
+                message += ex.GetType().ToString();
+                Session["ErrorHandle"] = message;
+                return Redirect("Account/GeneralFailure");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Ajout(PisteurModel _pisteur, string returnUrl)
+        {
+            //if (Session["UserConnected"] == null) return Redirect("/LoginSk/_loginSkinned");
+            PisteurModel pisteur;
+
+            try
+            {
+                
+                if (ModelState.IsValid)
+                {
+                    if (Session["ID"] != null) _pisteur.ID_AUTO = (int)Session["ID"];
+                    //string userName = WebSecurity.CurrentUserName;
+                    DbFactory.SavePisteur(_pisteur);
+                    ViewBag.IsCompleted = true;
+                    InitAjoutView();
+                    ViewBag.IsCompleted = true;
+                    ModelState.Clear();
+                    pisteur = new PisteurModel();
+                    pisteur.GetList();
+                    return View(pisteur);
+                }
+                else
+                {
+                    InitAjoutView();
+                    _pisteur.GetList();
+                    return View(_pisteur);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    message += ex.InnerException.Message;
+                }
+                message += ex.StackTrace;
+                message += ex.GetType().ToString();
+                Session["ErrorHandle"] = message;
+                return Redirect("/LoginSk/GeneralFailure");
+            }
+
+
         }
 
         //
