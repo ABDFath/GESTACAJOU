@@ -10,7 +10,7 @@
         Utilisez le formulaire ci-dessous pour créer un nouveau compte. 
     </p>
     <p>
-        Les mots de passe doivent comporter au minimum <%: Membership.MinRequiredPasswordLength %> caractères.
+        Les mots de passe doivent comporter au minimum huit caractères.
     </p>
 
     <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>

@@ -25,7 +25,7 @@ namespace GESTACAJOU.Models
         [Required]
         public int TOTAL { get; set; }
 
-        public Vente VENTE { get; set; }
+        public string VENTE { get; set; }
         public string CHARGEMENT { get; set; }
     }
 }

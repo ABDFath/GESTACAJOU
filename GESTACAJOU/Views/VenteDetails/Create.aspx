@@ -1,85 +1,120 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<GESTACAJOU.Models.Vente_Details>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Create
+    GESTCAJOU | Enregistrer détails nouvelle vente
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Create</h2>
+    <h2>Enregistrer les details d'une vente</h2>
 
-<script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
-<script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
+    <script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
+    <div class="row">
+        <% using (Html.BeginForm())
+           { %>
+        <%: Html.ValidationSummary(true) %>
+        <%: Html.AntiForgeryToken() %>
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Insérer de nouveaux details</h3>
+                    <div class="box-tools pull-right">
+                        <div class="label bg-aqua">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            &nbsp;
+                        </div>
 
-<% using (Html.BeginForm()) { %>
-    <%: Html.ValidationSummary(true) %>
-    <fieldset>
-        <legend>Vente_Details</legend>
+                        <div class="col-md-2">
+                            <label>VENTE</label>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <%: Html.DropDownListFor(m => m.ID_VENTE,ViewData["VENTE"] as List<SelectListItem>, new {@class = "form-control select2"}) %>
+                                <%: Html.ValidationMessageFor(m=>m.VENTE) %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <label>CHARGEMENT</label>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <%: Html.DropDownListFor(m => m.ID_CHARGEMENT,ViewData["CHARGEMENT"] as List<SelectListItem>, new {@class = "form-control select2"}) %>
+                                <%: Html.ValidationMessageFor(m=>m.CHARGEMENT) %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <label>PRIX UNITAIRE</label>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <%: Html.TextBoxFor(m => m.PRIX_UNITAIRE, new {@class ="form-control",autocomplete="off" }) %>
+                                <%: Html.ValidationMessageFor(m=>m.PRIX_UNITAIRE) %>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-2">
+                        <label>QUANTITE</label>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <%: Html.TextBoxFor(m => m.QTE, new {@class ="form-control",autocomplete="off" }) %>
+                            <%: Html.ValidationMessageFor(m=>m.QTE) %>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_AUTO) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ID_AUTO) %>
-            <%: Html.ValidationMessageFor(model => model.ID_AUTO) %>
-        </div>
 
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_VENTE) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ID_VENTE) %>
-            <%: Html.ValidationMessageFor(model => model.ID_VENTE) %>
-        </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-2">
+                        <label>TOTAL</label>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <%: Html.TextBoxFor(m => m.TOTAL, new {@class ="form-control",autocomplete="off" }) %>
+                            <%: Html.ValidationMessageFor(m=>m.TOTAL) %>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.ID_CHARGEMENT) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.ID_CHARGEMENT) %>
-            <%: Html.ValidationMessageFor(model => model.ID_CHARGEMENT) %>
-        </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        &nbsp;
+                    </div>
+                    <p>
+                        <input type="submit" value="Enregistrer" class="btn btn-success" name="btnFormSubmit" id="btnFormSubmit" />
+                    </p>
 
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.PRIX_UNITAIRE) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.PRIX_UNITAIRE) %>
-            <%: Html.ValidationMessageFor(model => model.PRIX_UNITAIRE) %>
-        </div>
+                </div>
+            </div>
 
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.QTE) %>
         </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.QTE) %>
-            <%: Html.ValidationMessageFor(model => model.QTE) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.TOTAL) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.TOTAL) %>
-            <%: Html.ValidationMessageFor(model => model.TOTAL) %>
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.CHARGEMENT) %>
-        </div>
-        <div class="editor-field">
-            <%: Html.EditorFor(model => model.CHARGEMENT) %>
-            <%: Html.ValidationMessageFor(model => model.CHARGEMENT) %>
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-<% } %>
-
-<div>
-    <%: Html.ActionLink("Back to List", "Index") %>
-</div>
+    </div>
+    </div>
+    <% } %>
+    <div>
+        <%: Html.ActionLink("Retour à la liste","../VenteDetails/Index") %>
+    </div>
 
 </asp:Content>

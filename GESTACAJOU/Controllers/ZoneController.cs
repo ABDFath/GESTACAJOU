@@ -29,6 +29,16 @@ namespace GESTACAJOU.Controllers
             return View(_list);
         }
 
+        //public static IEnumerable<SelectListItem> ToSelectListItems()
+        //{
+        //    IList<SelectListItem> results = new List<SelectListItem>();
+        //    foreach (PARTENAIRE item in PARTENAIRE.GetList())
+        //    {
+        //        results.Add(new SelectListItem { Text = item.ToString(), Value = item.ID_AUTO.ToString() });
+        //    }
+        //    return results;
+        //}
+       
    
         //
         // GET: /Zone/Create

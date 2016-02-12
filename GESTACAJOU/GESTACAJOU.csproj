@@ -164,7 +164,6 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Business\DbFactory.cs" />
-    <Compile Include="Models\Chargement.cs" />
     <Compile Include="Models\ChargementDetailsModel.cs" />
     <Compile Include="Models\ChargementModel.cs" />
     <Compile Include="Models\ChargeModel.cs" />

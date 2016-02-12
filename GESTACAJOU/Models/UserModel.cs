@@ -28,5 +28,10 @@ namespace GESTACAJOU.Models
         {
             return new UserModel(nom, prenom, tel, pwd, id_group);
         }
+
+        public override string ToString()
+        {
+            return NOM + ' ' + PRENOM;
+        }
     }
 }
