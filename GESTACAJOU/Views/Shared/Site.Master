@@ -56,7 +56,7 @@
                         <li><a href="../Vente/IndexVente"><span>Vente</span></a></li>
                         <li><a href="../VenteDetails/Index"><span>Détails Vente</span></a></li>
                         <li><a href="../Pisteur/Ajout"><span>Pisteurs</span></a></li>
-                        <li><a href="../Zone/Create"><span>Zones</span></a></li>
+                        <li><a href="../Zone/Index"><span>Zones</span></a></li>
                         <li><a href="../Partenaire/IndexPartenaire"><span>Partenaires</span></a></li>
                         <li><a href="#"><span>Paramètres</span></a>
                         <li><a href="../Home/About"><span>A propos</span></a>

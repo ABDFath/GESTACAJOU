@@ -23,21 +23,22 @@ namespace GESTACAJOU.Controllers
                 zones.NOM = item.NOM;
                 zones.CONTROLEUR = item.CONTROLEUR;
                 zones.ID_CONT = item.ID_CONTROLER;
+                zones.ID_AUTO = item.ID_AUTO;
                 _list.Add(zones);
             }
 
             return View(_list);
         }
 
-        //public static IEnumerable<SelectListItem> ToSelectListItems()
-        //{
-        //    IList<SelectListItem> results = new List<SelectListItem>();
-        //    foreach (PARTENAIRE item in PARTENAIRE.GetList())
-        //    {
-        //        results.Add(new SelectListItem { Text = item.ToString(), Value = item.ID_AUTO.ToString() });
-        //    }
-        //    return results;
-        //}
+        public static IEnumerable<SelectListItem> ToSelectListItems()
+        {
+            IList<SelectListItem> results = new List<SelectListItem>();
+            foreach (SYS_UTILISATEUR item in SYS_UTILISATEUR.GetList_CONTROLEURS())
+            {
+                results.Add(new SelectListItem { Text = item.NOM, Value = item.ID_AUTO.ToString() });
+            }
+            return results;
+        }
        
    
         //
@@ -45,6 +46,7 @@ namespace GESTACAJOU.Controllers
 
         public ActionResult Create()
         {
+            ViewData["ID_CONT"] = ToSelectListItems();
             return View();
         } 
 
@@ -61,9 +63,9 @@ namespace GESTACAJOU.Controllers
             {
                 ZONE _zone = new ZONE();
                 _zone.NOM = zonesToCreate.NOM;
-                _zone.CONTROLEUR = zonesToCreate.CONTROLEUR;
+                _zone.ID_CONTROLER = zonesToCreate.ID_CONT;
                 _zone.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Zone/Index");
             }
             catch
             {
@@ -74,13 +76,21 @@ namespace GESTACAJOU.Controllers
         //
         // GET: /Zone/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
             Zone zones = new Zone();
             ZONE _zone = new ZONE();
+
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+
             _zone.LoadId(id);
             zones.NOM = _zone.NOM;
             zones.CONTROLEUR = _zone.CONTROLEUR;
+
+            IEnumerable<SelectListItem> list = ToSelectListItems();
+            list.ToList().Find(x => x.Text.Equals(zones.CONTROLEUR)).Selected = true;
+           ViewData["ID_CONT"] = list;
+
             return View(zones);
         }
 
@@ -90,6 +100,8 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult Edit(Zone zones)
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+
             if (!ModelState.IsValid)
                 return View();
 
@@ -98,9 +110,10 @@ namespace GESTACAJOU.Controllers
                 ZONE _zone = new ZONE();
                 _zone.NOM = zones.NOM;
                 _zone.CONTROLEUR = zones.CONTROLEUR;
-                _zone.SetId(zones.ID_AUTO);
+                _zone.ID_CONTROLER = zones.ID_CONT;
+                _zone.SetId(id);
                 _zone.Save();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Zone/Index");
             }
             catch
             {
@@ -111,13 +124,19 @@ namespace GESTACAJOU.Controllers
         //
         // GET: /Zone/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+          
             Zone zones = new Zone();
             ZONE _zone = new ZONE();
             _zone.LoadId(id);
             zones.NOM = _zone.NOM;
             zones.ID_AUTO = _zone.ID_AUTO;
+            zones.CONTROLEUR = _zone.CONTROLEUR;
+            IEnumerable<SelectListItem> list = ToSelectListItems();
+            list.ToList().Find(x => x.Text.Equals(zones.CONTROLEUR)).Selected = true;
+            ViewData["ID_CONT"] = list;
             return View(zones);
         }
 
@@ -127,15 +146,17 @@ namespace GESTACAJOU.Controllers
         [HttpPost]
         public ActionResult Delete(Zone zones)
         {
+            int id = Int32.Parse(RouteData.Values["id"].ToString());
+          
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
                 ZONE _zone = new ZONE();
-                _zone.SetId(zones.ID_AUTO);
+                _zone.SetId(id);
                 _zone.Delete();
-                return RedirectToAction("../Home/Index");//reafficher l liste
+                return RedirectToAction("../Zone/Index");//reafficher l liste
             }
             catch
             {

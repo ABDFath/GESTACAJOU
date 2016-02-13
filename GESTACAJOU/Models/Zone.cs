@@ -13,8 +13,10 @@ namespace GESTACAJOU.Models
         [Required]
         public string NOM { get; set; }
 
+
         public string CONTROLEUR { get; set; }
 
+        [Required]
         public int ID_CONT { get; set; }
     }
 }
